@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CannonMoveScript : MonoBehaviour
 {
+    public GameObject player;
     public GameObject missile;
     public GameObject missileClone;
 
@@ -39,7 +40,7 @@ public class CannonMoveScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            missileClone = Instantiate(missile, new Vector3(0, 0, 0), transform.rotation) as GameObject;
+            missileClone = Instantiate(missile, new Vector3(player.transform.position.x, player.transform.position.y + 0.8f, 0), player.transform.rotation) as GameObject;
         }
     }
 }
