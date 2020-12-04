@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class CannonMoveScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject missile;
+    public GameObject missileClone;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
+    {
+        PlayerMovement();
+        FireBullet();
+    }
+
+    void PlayerMovement()
     {
         if (Input.GetKey(KeyCode.LeftArrow))
         {
@@ -25,6 +32,14 @@ public class CannonMoveScript : MonoBehaviour
             Vector3 position = this.transform.position;
             position.x += 0.1f;
             this.transform.position = position;
+        }
+    }
+
+    void FireBullet()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            missileClone = Instantiate(missile, new Vector3(0, 0, 0), transform.rotation) as GameObject;
         }
     }
 }
