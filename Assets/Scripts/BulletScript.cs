@@ -8,7 +8,7 @@ public class BulletScript : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()

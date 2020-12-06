@@ -6,6 +6,8 @@ public class EnemyScript : MonoBehaviour
 {
     float timer = 0;
     float timeToMove = 0.5f;
+    int numOfMovements = 0;
+    float speed = 0.1f;
 
     public GameObject missile;
     public GameObject missileClone;
@@ -19,10 +21,23 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
+
         if (timer > timeToMove)
         {
-            transform.Translate(new Vector3(0.1f, 0f, 0));
+            Vector3 position = this.transform.position;
+            position.x += speed;
+            this.transform.position = position;
             timer = 0;
+            numOfMovements++;
+        }
+
+        if (numOfMovements == 20)
+        {
+            Vector3 position = this.transform.position;
+            position.y -= 0.5f;
+            this.transform.position = position;
+            numOfMovements = 0;
+            speed = -speed;
         }
     }
 }
