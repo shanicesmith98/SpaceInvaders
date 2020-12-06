@@ -16,7 +16,7 @@ public class CannonMoveScript : MonoBehaviour
     void Update()
     {
         PlayerMovement();
-        FireBullet();
+        FireMissile();
     }
 
     void PlayerMovement()
@@ -36,11 +36,11 @@ public class CannonMoveScript : MonoBehaviour
         }
     }
 
-    void FireBullet()
+    void FireMissile()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            missileClone = Instantiate(missile, new Vector3(player.transform.position.x, player.transform.position.y + 0.8f, 0), player.transform.rotation) as GameObject;
+            missileClone = Instantiate(missile, new Vector3(this.transform.position.x, this.transform.position.y + 0.8f, 0), this.transform.rotation) as GameObject;
         }
     }
 }
