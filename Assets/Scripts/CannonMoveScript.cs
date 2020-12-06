@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CannonMoveScript : MonoBehaviour
 {
-    public GameObject player;
+    float speed = 0.1f;
+
     public GameObject missile;
     public GameObject missileClone;
 
@@ -24,14 +25,14 @@ public class CannonMoveScript : MonoBehaviour
         if (Input.GetKey(KeyCode.LeftArrow))
         {
             Vector3 position = this.transform.position;
-            position.x -= 0.1f;
+            position.x -= speed;
             this.transform.position = position;
         }
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
             Vector3 position = this.transform.position;
-            position.x += 0.1f;
+            position.x += speed;
             this.transform.position = position;
         }
     }

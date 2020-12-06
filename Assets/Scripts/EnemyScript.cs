@@ -9,20 +9,36 @@ public class EnemyScript : MonoBehaviour
     int numOfMovements = 0;
     float speed = 0.1f;
 
-    public GameObject missile;
+    public GameObject enemyMissile;
     public GameObject missileClone;
 
     void Start()
     {
-
+        
     }
 
     
     void Update()
     {
         timer += Time.deltaTime;
+        XYMovement();
+        fireMissile();
+    }
 
-        if (timer > timeToMove)
+    void XYMovement()
+    {
+        // move down y axis after 20 movements on x axis 
+        if (numOfMovements == 20)
+        {
+            Vector3 position = this.transform.position;
+            position.y -= 0.5f;
+            this.transform.position = position;
+            numOfMovements = -1;
+            speed = -speed;
+        }
+
+        // move across x axis on timed interval
+        if (timer > timeToMove && numOfMovements < 20)
         {
             Vector3 position = this.transform.position;
             position.x += speed;
@@ -31,13 +47,13 @@ public class EnemyScript : MonoBehaviour
             numOfMovements++;
         }
 
-        if (numOfMovements == 20)
+    }
+
+    void fireMissile()
+    {
+        if (Random.Range(0f, 500f) < 1)
         {
-            Vector3 position = this.transform.position;
-            position.y -= 0.5f;
-            this.transform.position = position;
-            numOfMovements = 0;
-            speed = -speed;
+            missileClone = Instantiate(enemyMissile, new Vector3(this.transform.position.x, this.transform.position.y - 0.4f, 0), this.transform.rotation) as GameObject;
         }
     }
 }
