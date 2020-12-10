@@ -9,6 +9,7 @@ public class SoundScript : MonoBehaviour
     public AudioClip [] soundClips;
     // 0 - Shooting
     // 1 - Explosion
+
     
     void Start()
     {

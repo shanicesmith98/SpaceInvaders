@@ -11,7 +11,6 @@ public class EnemyBulletScript : MonoBehaviour
     {
         
     }
-
     
     void Update()
     {
@@ -20,17 +19,22 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        /*if (collision.gameObject.tag == "Player" && playerHealth == 0)
+        if (collision.gameObject.tag == "Player" && playerHealth == 0)
         {
             Destroy(enemyMissile);
             Destroy(collision.gameObject);
-        }*/
+        }
 
         if (collision.gameObject.tag == "Player")
         { 
             Destroy(enemyMissile);
             playerHealth--;
             Debug.Log("Health Status: " + playerHealth);
+        }
+
+        if (collision.gameObject.tag == "Finish")
+        { 
+            Destroy(enemyMissile);
         }
     }
 }

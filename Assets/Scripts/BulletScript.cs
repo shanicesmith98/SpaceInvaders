@@ -23,5 +23,10 @@ public class BulletScript : MonoBehaviour
             Destroy(collision.gameObject);
             Destroy(missile);
         }
+
+        if (collision.gameObject.tag == "Finish")
+        {
+            Destroy(missile);
+        }
     }
 }

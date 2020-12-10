@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49dcc21445a251241a062696f7da946e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMissile: {fileID: 0}
+  missileClone: {fileID: 0}
 --- !u!50 &-4681553168679157216
 Rigidbody2D:
   serializedVersion: 4
@@ -116,7 +118,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!61 &-2193551938364907827
 BoxCollider2D:
   m_ObjectHideFlags: 0
