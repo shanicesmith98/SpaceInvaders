@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyBulletScript : MonoBehaviour
 {
     public GameObject enemyMissile;
-    int playerHealth = 10;
+
 
     void Start()
     {
@@ -19,7 +19,7 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && playerHealth == 0)
+        if (collision.gameObject.tag == "Player" && CannonMoveScript.playerHealth == 0)
         {
             Destroy(enemyMissile);
             Destroy(collision.gameObject);
@@ -28,8 +28,8 @@ public class EnemyBulletScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         { 
             Destroy(enemyMissile);
-            playerHealth--;
-            Debug.Log("Health Status: " + playerHealth);
+            CannonMoveScript.playerHealth--;
+            Debug.Log("Health Status: " + CannonMoveScript.playerHealth);
         }
 
         if (collision.gameObject.tag == "Finish")

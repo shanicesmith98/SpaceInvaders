@@ -8,6 +8,7 @@ public class CannonMoveScript : MonoBehaviour
 
     public GameObject missile;
     public GameObject missileClone;
+    public static int playerHealth = 10;
 
     void Start()
     {

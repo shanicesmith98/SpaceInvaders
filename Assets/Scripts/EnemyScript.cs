@@ -11,6 +11,8 @@ public class EnemyScript : MonoBehaviour
 
     public GameObject enemyMissile;
     public GameObject missileClone;
+    public GameObject Player;
+    private bool playerFound = false;
 
     void Start()
     {
@@ -22,7 +24,23 @@ public class EnemyScript : MonoBehaviour
     {
         timer += Time.deltaTime;
         XYMovement();
-        fireMissile();
+
+        // fire missile if player is directly below
+        
+        /*RaycastHit2D playerCheck = Physics2D.Raycast(transform.position, Vector2.down, 15f, LayerMask.GetMask("Player"));
+
+        if (playerCheck)
+        {
+            playerFound = true;
+        }
+
+        if (playerFound)*/
+
+        if (CannonMoveScript.playerHealth > 0)
+        {
+            fireMissile();
+        }
+           
     }
 
     void XYMovement()
@@ -51,7 +69,7 @@ public class EnemyScript : MonoBehaviour
 
     void fireMissile()
     {
-        if (Random.Range(0f, 500f) < 1)
+        if (Random.Range(0f, 10000f) < 1)
         {
             missileClone = Instantiate(enemyMissile, new Vector3(this.transform.position.x, this.transform.position.y - 0.4f, 0), this.transform.rotation) as GameObject;
         }
