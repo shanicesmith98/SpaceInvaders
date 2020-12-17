@@ -6,7 +6,6 @@ public class EnemyBulletScript : MonoBehaviour
 {
     public GameObject enemyMissile;
 
-
     void Start()
     {
         
@@ -19,10 +18,10 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && CannonMoveScript.playerHealth == 0)
+        if (collision.gameObject.tag == "Player" && CannonMoveScript.playerHealth <= 1)
         {
-            Destroy(enemyMissile);
             Destroy(collision.gameObject);
+            Destroy(enemyMissile);
         }
 
         if (collision.gameObject.tag == "Player")
