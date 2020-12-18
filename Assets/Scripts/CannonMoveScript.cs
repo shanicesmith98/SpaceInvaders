@@ -9,16 +9,23 @@ public class CannonMoveScript : MonoBehaviour
     public GameObject missile;
     public GameObject missileClone;
     public static int playerHealth = 10;
+    public static bool gameStatus = true;
+    public static int score;
 
     void Start()
     {
-        
+        score = 0;
     }
 
     void Update()
     {
         PlayerMovement();
         FireMissile();
+
+        if (playerHealth <= 1)
+        {
+            gameStatus = false;
+        }
     }
 
     void PlayerMovement()

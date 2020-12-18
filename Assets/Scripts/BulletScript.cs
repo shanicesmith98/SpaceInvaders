@@ -22,6 +22,8 @@ public class BulletScript : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Destroy(missile);
+            CannonMoveScript.score++;
+            Debug.Log("Score: " + CannonMoveScript.score);
         }
 
         if (collision.gameObject.tag == "Finish")

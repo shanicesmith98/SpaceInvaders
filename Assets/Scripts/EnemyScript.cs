@@ -12,7 +12,7 @@ public class EnemyScript : MonoBehaviour
     public GameObject enemyMissile;
     public GameObject missileClone;
     public GameObject Player;
-    private bool playerFound = false;
+    //private bool playerFound = false;
 
     void Start()
     {
