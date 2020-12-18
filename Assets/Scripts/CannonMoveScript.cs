@@ -8,13 +8,11 @@ public class CannonMoveScript : MonoBehaviour
 
     public GameObject missile;
     public GameObject missileClone;
-    public static int playerHealth = 10;
     public static bool gameStatus = true;
-    public static int score;
 
     void Start()
     {
-        score = 0;
+
     }
 
     void Update()
@@ -22,7 +20,7 @@ public class CannonMoveScript : MonoBehaviour
         PlayerMovement();
         FireMissile();
 
-        if (playerHealth <= 1)
+        if (PlayerHealth.playerHealthValue <= 1)
         {
             gameStatus = false;
         }
@@ -49,7 +47,7 @@ public class CannonMoveScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            missileClone = Instantiate(missile, new Vector3(this.transform.position.x, this.transform.position.y + 0.8f, 0), this.transform.rotation) as GameObject;
+            missileClone = Instantiate(missile, new Vector3(this.transform.position.x, this.transform.position.y + 0.1f, 0), this.transform.rotation) as GameObject;
         }
     }
 }

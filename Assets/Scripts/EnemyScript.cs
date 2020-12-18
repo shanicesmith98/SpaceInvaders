@@ -23,7 +23,7 @@ public class EnemyScript : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        XYMovement();
+        
 
         // fire missile if player is directly below
         
@@ -36,8 +36,9 @@ public class EnemyScript : MonoBehaviour
 
         if (playerFound)*/
 
-        if (CannonMoveScript.playerHealth > 0)
+        if (PlayerHealth.playerHealthValue > 0)
         {
+            XYMovement();
             fireMissile();
         }
            

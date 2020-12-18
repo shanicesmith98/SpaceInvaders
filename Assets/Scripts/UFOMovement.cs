@@ -18,21 +18,25 @@ public class UFOMovement : MonoBehaviour
     void Update()
     {
         timer += Time.deltaTime;
-        XYMovement();
+
+        if (PlayerHealth.playerHealthValue > 0)
+        {
+            XYMovement();
+        }
     }
 
     void XYMovement()
     {
-        if (numOfMovements == 60)
+        if (numOfMovements == 50)
         {
             Vector3 position = this.transform.position;
             position.x += speed;
             this.transform.position = position;
             numOfMovements = -1;
-            speed = -speed;
+            //speed = -speed;
         }
 
-        if (timer > timeToMove && numOfMovements < 60)
+        if (timer > timeToMove && numOfMovements < 50)
         {
             Vector3 position = this.transform.position;
             position.x -= speed;

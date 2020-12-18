@@ -18,7 +18,7 @@ public class EnemyBulletScript : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player" && CannonMoveScript.playerHealth <= 1)
+        if (collision.gameObject.tag == "Player" && PlayerHealth.playerHealthValue <= 1)
         {
             Destroy(collision.gameObject);
             Destroy(enemyMissile);
@@ -27,8 +27,7 @@ public class EnemyBulletScript : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         { 
             Destroy(enemyMissile);
-            CannonMoveScript.playerHealth--;
-            Debug.Log("Health Status: " + CannonMoveScript.playerHealth);
+            PlayerHealth.playerHealthValue--;
         }
 
         if (collision.gameObject.tag == "Finish")
